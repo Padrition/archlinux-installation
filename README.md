@@ -50,3 +50,31 @@ To install it, execute following command:
 Set a kernel parametr ```acpi_backlight``` to ```video```
 
 Use [this solution](https://unix.stackexchange.com/a/322862) .
+
+* Keyboard layout switching
+
+put in ```/usr/share/X11/xorg.conf.d/00-keyboard.conf```
+
+```
+Section "InputClass"
+    Identifier "system-keyboard"
+    MatchIsKeyboard "on"
+    Option "XkbLayout" "us,ru"
+    Option "XkbModel" "pc102"
+    Option "XkbOptions" "grp:alt_shift_toggle"
+EndSection
+```
+* Screen tearing
+
+put in ```/usr/share/X11/xorg.conf.d/10-nvidia.conf```
+
+```
+Section "Screen"
+    Identifier  "Screen0"
+    Device      "Device0"
+    Monitor     "Monitor0"
+    Option      "MetaModes" "nvidia-auto-select +0+0 {ForceFullCompositionPipeline=On}"
+    Option      "AllowIndirectGLXProtocol" "off"
+    Option      "TripleBuffer" "on"
+EndSection
+```
