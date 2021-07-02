@@ -47,4 +47,6 @@ To install it, execute following command:
 
 * Backlight don't changing 
 
+Set a kernel parametr ```acpi_backlight``` to ```video```
+
 Use [this solution](https://unix.stackexchange.com/a/322862) .
