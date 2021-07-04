@@ -78,3 +78,26 @@ Section "Screen"
     Option      "TripleBuffer" "on"
 EndSection
 ```
+* Kernel freez becouse of wifi drivers
+
+solution provided by Ari Archer
+
+```
+[Forwarded from Ari Archer]
+1. add this to /var/lib/NetworkManager/NetworkManager-intern.conf
+[connectivity]
+.set.enabled=false
+
+2.add this to /etc/modprobe.d/blacklist.conf
+blacklist rtw88_8821ce
+
+3. type
+sudo reboot -f
+3.1. boot up, log in, wait a few seconds and type
+shutdown now
+3.2. wait a couple of seconds and boot up
+3.3. check if everything worked with
+sudo lsmod | grep -i rtw
+(should get no output if everything went good)
+3.4. reinstall the driver from  https://github.com/tomaspinho/rtl8821ce if still happens
+```
