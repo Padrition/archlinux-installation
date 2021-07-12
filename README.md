@@ -42,7 +42,12 @@ To install it, execute following command:
 
     sudo pacman -S nvidia-dkms nvidia-utils lib32-nvidia-utils nvidia-settings vulkan-icd-loader lib32-vulkan-icd-loader
     
-    
+## Creating WiFihotspot
+(Reddit user u/Architector4)
+You can use `nm-connection-editor` package/binary. Run it, use a + icon on bottom left to add a new network of type "WiFi", and then, while configuring it, set "Client" mode to "Hotspot".
+
+If you'll have troubles and wouldn't be able to create a working hotspot at all no matter what, keep in mind that it's possible that your WiFi chip or drivers for it don't support creating a hotspot. In my case, with `broadcom-wl` driver, I can't. I don't know if it's because of my chip or the driver not supporting it though.
+
 ## Trubleshooting 
 
 * Backlight don't changing 
